@@ -154,12 +154,12 @@ h1,h2,h3{ margin:0; font-weight:500; }
 .offer .tag{ font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; color:var(--rose); }
 .offer h3{ font-family:var(--serif); font-size:clamp(1.9rem,5vw,2.6rem); line-height:1.05; margin-top:8px; letter-spacing:-.02em; }
 .offer .ko{ font-weight:600; margin:10px 0 0; }
-.offer .price{ display:flex; align-items:baseline; gap:10px; margin:16px 0 0; padding-top:14px; border-top:1px solid var(--line); }
-.offer .price strong{ font-family:var(--serif); font-size:2.4rem; font-weight:400; font-variant-numeric:lining-nums; }
-.offer .price span{ font-size:.86rem; color:var(--ink-soft); }
-.offer ul{ margin:14px 0 0; padding:0; list-style:none; font-size:.9rem; color:var(--ink-soft); }
-.offer li{ padding:4px 0; }
-.offer li::before{ content:""; display:inline-block; width:12px; height:1px; background:var(--rose); vertical-align:.3em; margin-right:8px; }
+.offer h3 .num{ font-family:var(--serif); font-variant-numeric:lining-nums; }
+.offer h3 .unit{ font-family:var(--sans); font-size:1.1rem; font-weight:700; margin-left:6px; letter-spacing:-.01em; }
+.olist{ list-style:none; margin:16px 0 0; padding:0; border-top:1px solid var(--ink); }
+.olist li{ display:flex; justify-content:space-between; gap:12px; padding:10px 0; border-bottom:1px solid var(--line); font-size:.93rem; }
+.olist li span:last-child{ font-weight:600; font-variant-numeric:tabular-nums; white-space:nowrap; }
+.offer .save{ margin:12px 0 0; font-size:.8rem; color:var(--ink-soft); }
 
 /* ---------- 전후 (에디토리얼 그리드) ---------- */
 .ba{ display:grid; grid-template-columns:1fr 1fr; gap:26px 14px; }
@@ -177,6 +177,7 @@ h1,h2,h3{ margin:0; font-weight:500; }
 .ptable ul{ list-style:none; margin:0; padding:0; }
 .ptable li{ display:flex; justify-content:space-between; gap:14px; padding:12px 0; border-bottom:1px solid var(--line); font-size:.95rem; }
 .ptable li span:last-child{ font-variant-numeric:tabular-nums; white-space:nowrap; font-weight:600; }
+.ptable .pnote{ margin:10px 0 0; font-size:.8rem; font-weight:600; color:var(--rose); }
 .ptable li small{ display:block; font-size:.78rem; color:var(--rose); font-weight:600; }
 .price-note{ margin:30px 0 0; font-size:.84rem; color:var(--ink-soft); }
 
@@ -204,12 +205,6 @@ h1,h2,h3{ margin:0; font-weight:500; }
 .foot p{ margin:0; font-size:.86rem; color:var(--ink-soft); line-height:1.9; }
 .foot a{ border-bottom:1px solid var(--line); }
 
-/* ---------- 모바일 하단 예약바 (PC 메인 CTA와 같은 채널: 카카오 상담 · 네이버 예약) ---------- */
-.quickbar{ position:fixed; left:0; right:0; bottom:0; z-index:60; display:grid; grid-template-columns:1fr 1fr; border-top:1px solid var(--ink); background:var(--ivory); }
-.quickbar a{ text-align:center; padding:14px 8px calc(14px + env(safe-area-inset-bottom)); font-size:.92rem; font-weight:600; }
-.quickbar a + a{ background:var(--ink); color:var(--ivory); }
-@media (min-width:860px){ .quickbar{ display:none; } }
-@media (max-width:859px){ body{ padding-bottom:58px; } }
 
 /* ---------- 모션 (강제 재생 · 다올 지시) ---------- */
 .reveal{ opacity:0; transform:translateY(16px); transition:opacity .8s ease, transform .8s cubic-bezier(.22,.61,.36,1); }
@@ -260,8 +255,9 @@ h1,h2,h3{ margin:0; font-weight:500; }
           <div class="hero-cta">
             <a class="btn dark" href="https://naver.me/F5DSoefA" target="_blank" rel="noopener">네이버로 예약하기</a>
             <a class="btn line" href="https://pf.kakao.com/_ykRTn" target="_blank" rel="noopener">카카오톡 상담</a>
+            <a class="btn line" href="https://www.instagram.com/rover.waxing/" target="_blank" rel="noopener">인스타그램</a>
           </div>
-          <p class="credit">왁싱 만족도 100% · 재방문 99% · 로버왁싱 소개 중에서</p>
+          <p class="credit">왁싱 만족도 100% · 재방문 99%</p>
         </div>
         <figure class="hero-fig reveal">
           <img src="rv-hero.webp" alt="왁싱 후 매끈하고 윤기 나는 팔 피부" width="1200" height="775" />
@@ -301,16 +297,18 @@ h1,h2,h3{ margin:0; font-weight:500; }
             <li><b>진정 관리</b><p>시술 후 진정 관리와 PDT 진정 테라피까지 꼼꼼하게.</p></li>
           </ol>
         </div>
-        <aside class="offer reveal" aria-label="첫 방문 혜택">
+        <aside class="offer reveal" aria-label="첫 방문 할인">
           <span class="tag">First visit offer</span>
-          <h3>Brazilian,<br /><span class="it">for her.</span></h3>
-          <p class="ko">첫 방문 여성 브라질리언 왁싱</p>
-          <p class="price"><strong>50,000</strong><span>원 · 2만7천원 할인가</span></p>
-          <ul>
-            <li>저통증 라이콘 핑키니 왁스 사용</li>
-            <li>인그로운 · PDT 진정기기 케어 포함</li>
-            <li>첫 방문에서 횟수권으로 이어지는 곳</li>
+          <h3><span class="num">27,000</span><span class="unit">원 할인</span></h3>
+          <p class="ko">첫 방문 브라질리언 · 아래 항목에 적용된 할인가예요</p>
+          <ul class="olist">
+            <li><span>첫방문 여성 브라질리언</span><span>50,000</span></li>
+            <li><span>첫방문 프리미엄 임산부왁싱</span><span>61,000</span></li>
+            <li><span>여성 브라질리언 3회권</span><span>160,000</span></li>
+            <li><span>여성 브라질리언 5회권</span><span>265,000</span></li>
+            <li><span>프리미엄 임산부왁싱 3회권</span><span>194,000</span></li>
           </ul>
+          <p class="save">단위 원 · 저통증 라이콘 핑키니 왁스, 인그로운·PDT 진정 케어 포함</p>
         </aside>
       </div>
     </div>
@@ -342,14 +340,18 @@ h1,h2,h3{ margin:0; font-weight:500; }
       <h2 id="price-h">Clear prices.<span class="ko">가격표</span></h2>
       <div class="price-grid" style="margin-top:clamp(28px,4vw,44px)">
         <div class="ptable reveal">
-          <h3>여성 브라질리언<span class="en">Woman</span></h3>
+          <h3>여성 · 임산부 브라질리언<span class="en">Woman</span></h3>
+          <p class="pnote">2만7천원 할인 적용 (아래 5개 항목)</p>
           <ul>
-            <li><span>첫방문 브라질리언<small>2만7천원 할인</small></span><span>50,000</span></li>
+            <li><span>첫방문 브라질리언</span><span>50,000</span></li>
             <li><span>첫방문 프리미엄 임산부왁싱</span><span>61,000</span></li>
             <li><span>브라질리언 3회권</span><span>160,000</span></li>
             <li><span>브라질리언 5회권</span><span>265,000</span></li>
             <li><span>프리미엄 임산부왁싱 3회권</span><span>194,000</span></li>
-            <li><span>2인 동반 브라질리언</span><span>110,000</span></li>
+          </ul>
+          <p class="pnote" style="margin-top:18px">동반</p>
+          <ul>
+            <li><span>여성 2인 동반 브라질리언</span><span>110,000</span></li>
           </ul>
         </div>
         <div class="ptable reveal">
@@ -421,6 +423,7 @@ h1,h2,h3{ margin:0; font-weight:500; }
           <div class="acts">
             <a class="btn dark" href="https://naver.me/F5DSoefA" target="_blank" rel="noopener">네이버 예약 · 지도</a>
             <a class="btn line" href="https://pf.kakao.com/_ykRTn" target="_blank" rel="noopener">카카오톡 상담</a>
+            <a class="btn line" href="https://www.instagram.com/rover.waxing/" target="_blank" rel="noopener">인스타그램</a>
           </div>
         </div>
         <iframe class="mapframe reveal" src="https://www.google.com/maps?q=%EB%8C%80%EA%B5%AC%20%EB%8B%AC%EC%84%9C%EA%B5%AC%20%EC%83%81%EC%9B%90%EB%A1%9C%20128&output=embed" title="로버왁싱 위치 지도 · 대구 달서구 상원로 128" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -440,11 +443,6 @@ h1,h2,h3{ margin:0; font-weight:500; }
     </div>
   </div>
 </footer>
-
-<nav class="quickbar" aria-label="빠른 예약">
-  <a href="https://pf.kakao.com/_ykRTn" target="_blank" rel="noopener">카카오톡 상담</a>
-  <a href="https://naver.me/F5DSoefA" target="_blank" rel="noopener">네이버 예약</a>
-</nav>
 
 <script>
 (function(){
