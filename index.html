@@ -210,6 +210,13 @@ h1,h2,h3{ margin:0; font-weight:500; }
 .reveal{ opacity:0; transform:translateY(16px); transition:opacity .8s ease, transform .8s cubic-bezier(.22,.61,.36,1); }
 .reveal.in{ opacity:1; transform:none; }
 
+/* ---------- 모바일 버튼 정렬 (v0.6): 위 네이버 예약 꽉 차게 · 아래 카카오톡/인스타그램 반반 → 위아래 좌우 폭 일치 ---------- */
+@media (max-width:719px){
+  .hero-cta, .acts{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .hero-cta .btn:first-child, .acts .btn:first-child{ grid-column:1 / -1; }
+  .hero-cta .btn, .acts .btn{ width:100%; padding-left:.6em; padding-right:.6em; }
+}
+
 /* ---------- ≥720 ---------- */
 @media (min-width:720px){
   .promise{ grid-template-columns:1fr 1fr; column-gap:48px; }
