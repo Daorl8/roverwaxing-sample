@@ -47,11 +47,11 @@
 </script>
 
 <!-- Fonts (OFL · 로컬 서브셋 self-host)
-     영문 제목 = Bodoni Moda (고대비 세리프 · 사장님 워터마크 'rover.waxing' 세리프 톤 계승) / 한글·정보 = Pretendard (가변) -->
-<link rel="preload" as="font" type="font/woff2" href="rv-bodoni.woff2" crossorigin />
+     영문 제목 = Fraunces 500 (v0.2: Bodoni 가는 획이 안 보여 교체 · 대비 낮고 획 단단한 에디토리얼 세리프) / 한글·정보 = Pretendard (가변) -->
+<link rel="preload" as="font" type="font/woff2" href="rv-fraunces.woff2" crossorigin />
 <style>
-@font-face{ font-family:"Bodoni Moda"; font-style:normal; font-weight:400 700; font-display:swap; src:url("rv-bodoni.woff2") format("woff2"); }
-@font-face{ font-family:"Bodoni Moda"; font-style:italic; font-weight:400 700; font-display:swap; src:url("rv-bodoni-italic.woff2") format("woff2"); }
+@font-face{ font-family:"Fraunces"; font-style:normal; font-weight:400 600; font-display:swap; src:url("rv-fraunces.woff2") format("woff2"); }
+@font-face{ font-family:"Fraunces"; font-style:italic; font-weight:400 600; font-display:swap; src:url("rv-fraunces-italic.woff2") format("woff2"); }
 @font-face{ font-family:"Pretendard"; font-style:normal; font-weight:300 700; font-display:swap; src:url("rv-pretendard.woff2") format("woff2"); }
 
 /* ============================================================
@@ -70,7 +70,7 @@
   --peach:#F2C4BC;        /* 사장님 후기 카드 그라데이션 실측 계열 · 면 장식 */
   --peach-2:#F8DCD3;
   --rose:#9C4A40;         /* 작은 강조 글씨 6.2:1 */
-  --serif:"Bodoni Moda", "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", serif;
+  --serif:"Fraunces", "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", serif;
   --sans:"Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
   --maxw:1180px;
   --gut:clamp(20px,5vw,48px);
@@ -82,7 +82,8 @@ img{ max-width:100%; height:auto; display:block; }
 a{ color:inherit; text-decoration:none; }
 .wrap{ width:100%; max-width:var(--maxw); margin:0 auto; padding:0 var(--gut); }
 section[id]{ scroll-margin-top:70px; }
-h1,h2,h3{ margin:0; font-weight:400; }
+h1,h2,h3{ margin:0; font-weight:500; }
+.mast, .kick .no, .promise .n, .steps li::before, .offer .price strong, .ptable h3 .en, .ba figcaption .en, .info dt, .quote q{ font-weight:500; }
 .serif{ font-family:var(--serif); }
 .it{ font-style:italic; }
 
